@@ -1,8 +1,9 @@
 # superbookie
+## the ultimate book lists
 
-# set up elastic search
+### set up elastic search
 
-# install dependencies
+### install dependencies
 bower install
 
-# open index.html
+### open index.html
