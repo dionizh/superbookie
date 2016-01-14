@@ -31,7 +31,7 @@ MyOpenRecipes.factory('bookieService',
             };
 
             client.search({
-                "index": 'booklist',
+                "index": 'superbookie',
                 "type": 'book',
                 "body": {
                     "size": 10,
@@ -64,7 +64,7 @@ MyOpenRecipes.controller('bookieCtrl',
     ['bookieService', '$scope', '$location', function(books, $scope, $location){
         // Provide some nice initial choices
         var initChoices = [
-            "dickens",
+            "enchi",
             "mary"
         ];
         var idx = Math.floor(Math.random() * initChoices.length);

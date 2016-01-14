@@ -3,28 +3,28 @@
 <head>
   <title>Elasticsearch + Angular Example</title>
   <link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.css">
+  <link rel="stylesheet" type="text/css" href="css/superbookie.css">
 </head>
 <!-- boot angular with the ExampleApp module -->
 <body class='index'>
     <div class='container'>
       <div ng-app='superbookie' ng-controller='bookieCtrl'>
         <header>
-          <h1>Book Search</h1>
+          <h1>Super Bookie <small>Your ultimate list search</small></h1>
         </header>
         <section class='searchField'>
-          <form ng-submit='search()'>
-            <input ng-model='searchTerm' type='text'>
-            <input type='submit' value='Search for books'>
+          <form ng-submit='search()' class="form-inline">
+            <input ng-model='searchTerm' type='text' class="form-control">
+            <input type='submit' value='Search for books' class="btn btn-primary">
           </form>
         </section>
         <section class='results'>
           <div class='no-books' ng-hide='books.length'>No results</div>
           <article class='book' ng-cloak ng-repeat='book in books'>
-            <h2>
-              <a ng-href='{{}}'>{{book.title}}</a>
-            </h2>            
             <p>
-              {{book.author}}
+              <b><a ng-href='{{}}'>{{book.title}}</a></b> by 
+              <b>{{book.author}}</b> ({{book.publication}})</br>
+              <small><span ng-repeat="country in book.countries">{{country}}</span></small>
             </p>
           </article>
           <div class='load-more' ng-cloak ng-hide='allResults'>
