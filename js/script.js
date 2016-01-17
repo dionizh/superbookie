@@ -64,8 +64,9 @@ MyOpenRecipes.controller('bookieCtrl',
     ['bookieService', '$scope', '$location', function(books, $scope, $location){
         // Provide some nice initial choices
         var initChoices = [
-            "enchi",
-            "mary"
+            "mary",
+            "woman",
+            "japan"
         ];
         var idx = Math.floor(Math.random() * initChoices.length);
 

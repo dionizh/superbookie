@@ -120,7 +120,7 @@ def load_data(es, listname, datafile):
             booklist.append(bookdict)
 
         i += 1
-        # if i > 30:
+        # if i > 10:
         #     break
 
     # a list of dictionary of content
@@ -139,19 +139,23 @@ def load_data(es, listname, datafile):
         author = '%s %s' % (book['Author First Name'], book['Author Last Name'])
         author = author.decode('utf-8')
 
-        bookaction = {'_type': 'book', 
+        action = {'_type': 'book', 
                   '_id': book['#'], 
                   '_source': {
                     'title': book['Book Title'],
                     'author': author,
+                    'lists': [{
+                        'id': '500gbbw', 
+                        'name': '500 Great Books by Women'
+                        }],
                     'publication': book['Date'],
                     'countries': [book['Country']]
                     }
                 }
         print action
-        actions.append(action)    
+        actions.append(action)
     
-    success, _ = bulk(es, booklistaction, index=INDEX_NAME, raise_on_error=True)
+    success, _ = bulk(es, actions, index=INDEX_NAME, raise_on_error=True)
     print('Performed %d actions' % success)
 
     # and now we can count the documents
