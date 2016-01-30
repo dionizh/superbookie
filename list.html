@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Super Bookie - Your ultimate book list search</title>
+  <link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.css">
+  <link rel="stylesheet" type="text/css" href="css/superbookie.css">
+</head>
+<!-- boot angular with the ExampleApp module -->
+<body class='index'>
+    <div class='container'>
+      <div ng-app='superbookie' ng-controller='listingCtrl'>
+        <header>
+          <h1>Super Bookie <small>Your ultimate book list search</small></h1>
+        </header>
+        <section class='searchField'>
+          <form ng-submit='search()' class="form-inline">
+            <input ng-model='searchTerm' type='text' class="form-control">
+            <input type='submit' value='Search for books' class="btn btn-primary">
+          </form>
+        </section>
+        <section class='results'>
+          <div class='no-books' ng-hide='books.length'>No results</div>
+          <article class='book' ng-cloak ng-repeat='book in books'>
+            <p>
+              {{book.id}}) <b><a ng-href='http://www.goodreads.com/search?query={{book.title}}+{{book.author}}&go=Go' target="_blank">{{book.title}}</a></b> by 
+              <b><a ng-href='http://www.goodreads.com/search?query={{book.author}}&go=Go' target="_blank">{{book.author}}</a></b> ({{book.publication}})</br>
+              Countries: <span ng-repeat='country in book.countries'>{{country}}</span></br>              
+              
+            </p>
+          </article>
+          
+        </section>
+        <footer>
+          Made By
+          <a href='http://www.wanderingmee.com/'>Digital technician and reader Dioni,</a>
+          powered by
+          <a href='http://www.meexia.com/bookie'>Bookie Mee</a>
+        </footer>
+      </div>
+    </div>
+    
+  <!-- include bower components in proper order -->
+  <script src="bower_components/angular/angular.js" type="text/javascript"></script>
+  <script src="bower_components/elasticsearch/elasticsearch.angular.js" type="text/javascript"></script>
+  <script src="js/script.js" type="text/javascript"></script>
+  
+</body>
+</html>
