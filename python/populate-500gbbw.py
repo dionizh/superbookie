@@ -25,7 +25,7 @@ def index_authors(data, list_name):
         print info
 
         yield {
-                '_id': info[3],
+                '_id': info[3],                
                 'name': info[2],
                 'gender': info[4]
             }
@@ -142,6 +142,7 @@ def load_data(es, listname, datafile):
         action = {'_type': 'book', 
                   '_id': book['#'], 
                   '_source': {
+                    'id': int(book['#']),
                     'title': book['Book Title'],
                     'author': author,
                     'lists': [{
