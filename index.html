@@ -24,7 +24,7 @@
             <p>
               <b><a ng-href='http://www.goodreads.com/search?query={{book.title}}+{{book.author}}&go=Go' target="_blank">{{book.title}}</a></b> by 
               <b><a ng-href='http://www.goodreads.com/search?query={{book.author}}&go=Go' target="_blank">{{book.author}}</a></b> ({{book.publication}})</br>
-              <!--small><span ng-repeat="country in book.countries">{{country}}</span></small-->
+              Countries: <span ng-repeat='country in book.countries'>{{country}}</span></br>              
               Included in: <span ng-repeat="list in book.lists"><a href="{{list.id}}">{{list.name}}</a></span>
             </p>
           </article>
